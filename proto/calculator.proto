@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package calculator;
+option go_package = "calculatorproto";
+
+message SumReq {
+    int32 first_num = 1;
+    int32 second_num = 2;
+}
+
+message SumRes {
+    int32 result = 1;
+}
+
+service calculatorService{
+    rpc Sum(SumReq) returns (SumRes){};
+}
+
+    // Client Streaming
+    rpc  ComputeAvarage (stream ComputeAvarageReq) returns (ComputeAvarageRes){};
+
+    // BiDi Streaming
+    rpc FindMaximum(stream FindMaximumRequest) returns (stream FindMaximumResponse){};
+
+    rpc SquareRoot(SquareRootRequest)returns (SquareRootResponse){};
+
+
+message ComputeAvarageReq{
+    int64 num = 1;
+}
+
+message ComputeAvarageRes{
+    double result = 1;
+}
+
+message FindMaximumRequest{
+    int64 num = 1;
+}
+
+message FindMaximumResponse{
+    int64 result = 1;
+}
+
+message SquareRootRequest{
+    int32 num = 1;
+}
+
+message SquareRootResponse{
+    double num_root = 1;
+}

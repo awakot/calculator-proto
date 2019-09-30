@@ -12,19 +12,6 @@ message SumRes {
     int32 result = 1;
 }
 
-service calculatorService{
-    rpc Sum(SumReq) returns (SumRes){};
-}
-
-    // Client Streaming
-    rpc  ComputeAvarage (stream ComputeAvarageReq) returns (ComputeAvarageRes){};
-
-    // BiDi Streaming
-    rpc FindMaximum(stream FindMaximumRequest) returns (stream FindMaximumResponse){};
-
-    rpc SquareRoot(SquareRootRequest)returns (SquareRootResponse){};
-
-
 message ComputeAvarageReq{
     int64 num = 1;
 }
@@ -48,3 +35,19 @@ message SquareRootRequest{
 message SquareRootResponse{
     double num_root = 1;
 }
+
+
+
+service calculatorService{
+    rpc Sum(SumReq) returns (SumRes){};
+
+    // Client Streaming
+    rpc  ComputeAvarage (stream ComputeAvarageReq) returns (ComputeAvarageRes){};
+
+    // BiDi Streaming
+    rpc FindMaximum(stream FindMaximumRequest) returns (stream FindMaximumResponse){};
+
+    rpc SquareRoot(SquareRootRequest)returns (SquareRootResponse){};
+
+}
+

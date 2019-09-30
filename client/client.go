@@ -27,11 +27,11 @@ func main() {
 	c := calculatorproto.NewCalculatorServiceClient(conn)
 	// fmt.Printf("created client: %f", c)
 
-	// doUnary(c)
+	doUnary(c)
 	// doServerStreaming(c)
 	// doClientStreaming(c)
 	// doBiDiStreaming(c)
-	doErrorUnary(c)
+	// doErrorUnary(c)
 
 }
 
@@ -46,7 +46,7 @@ func doUnary(c calculatorproto.CalculatorServiceClient) {
 	if err != nil {
 		log.Fatalf("error while calling GRPC: %v", err)
 	}
-	log.Printf("Response from Greet: %v", res.Result)
+	log.Printf("Response from Calculator: %v", res.Result)
 }
 
 func doClientStreaming(c calculatorproto.CalculatorServiceClient) {
